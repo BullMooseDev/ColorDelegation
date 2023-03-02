@@ -1,13 +1,6 @@
-//
-//  IconViewController.swift
-//  ColorsDelegation
-//
-//  Created by kole ervine on 3/2/23.
-//
-
 import UIKit
 
-class IconViewController: UIViewController {
+class IconViewController: UIViewController, ColorPickerDelegate {
 
     @IBOutlet var iconImageView: UIImageView!
     
@@ -17,6 +10,15 @@ class IconViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    func colorButtonTapped(color: UIColor) {
+        iconImageView.tintColor = color
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewController = segue.destination as? ColorPickerViewController {
+            viewController.delegate = self
+        }
+    }
 
 
 }

@@ -1,13 +1,6 @@
-//
-//  BackGroundViewController.swift
-//  ColorsDelegation
-//
-//  Created by kole ervine on 3/2/23.
-//
-
 import UIKit
 
-class BackGroundViewController: UIViewController {
+class BackGroundViewController: UIViewController, ColorPickerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,5 +8,14 @@ class BackGroundViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    func colorButtonTapped(color: UIColor) {
+        view.backgroundColor = color
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewController = segue.destination as? ColorPickerViewController {
+            viewController.delegate = self
+        }
+    }
     
 }

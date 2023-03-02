@@ -1,13 +1,6 @@
-//
-//  ViewController.swift
-//  ColorsDelegation
-//
-//  Created by kole ervine on 3/2/23.
-//
-
 import UIKit
 
-class ProfileNameViewController: UIViewController {
+class ProfileNameViewController: UIViewController, ColorPickerDelegate {
     
     @IBOutlet var profileNameTextField: UITextField!
     
@@ -15,7 +8,17 @@ class ProfileNameViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    func colorButtonTapped(color: UIColor) {
+        profileNameTextField.tintColor = color
+        profileNameTextField.textColor = color
+    }
 
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let colorPickerViewController = segue.destination as? ColorPickerViewController {
+            colorPickerViewController.delegate = self
+        }
+    }
+    
 }
 

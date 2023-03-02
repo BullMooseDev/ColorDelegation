@@ -27,7 +27,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qaJ-I1-9LB">
                                         <rect key="frame" x="0.0" y="42" width="377" height="34.333333333333343"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" title="Confirm"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="Choose Color"/>
                                         <connections>
                                             <segue destination="F2A-D2-nON" kind="presentation" id="86U-Q6-2Um"/>
                                         </connections>
@@ -238,7 +238,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="pnA-jO-8b9"/>
+        <segue reference="86U-Q6-2Um"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="person.circle.fill" catalog="system" width="128" height="123"/>

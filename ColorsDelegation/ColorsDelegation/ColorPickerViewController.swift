@@ -1,13 +1,12 @@
-//
-//  ColorPickerViewController.swift
-//  ColorsDelegation
-//
-//  Created by kole ervine on 3/2/23.
-//
-
 import UIKit
 
+protocol ColorPickerDelegate: AnyObject {
+    func colorButtonTapped(color: UIColor)
+}
+
 class ColorPickerViewController: UIViewController {
+    
+    weak var delegate: ColorPickerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,17 +17,19 @@ class ColorPickerViewController: UIViewController {
     
     @IBAction func colorButtonTapped(_ sender: UIButton) {
         
-        guard let title = sender.title(for: .normal) else {
+        guard let title = sender.titleLabel?.text else {
             fatalError()
         }
         
         switch title {
-        case "red": return
-        case "blue": return
-        case "green": return
-        case "yellow": return
+        case "red":delegate?.colorButtonTapped(color: .red)
+        case "blue": delegate?.colorButtonTapped(color: .blue)
+        case "green": delegate?.colorButtonTapped(color: .green)
+        case "yellow": delegate?.colorButtonTapped(color: .yellow)
         default: fatalError("fatal error at color button \(title)")
         }
+        
+        dismiss(animated: true)
     }
     
 }
